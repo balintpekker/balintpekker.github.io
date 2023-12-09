@@ -9,15 +9,17 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `bPekker.dev`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Balint Pekker`,
+      summary: `a software engineer being really good at turning caffeine into code.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `a Drupal Developer's blog.`,
+    siteUrl: `https://balintpekker.github.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `balint_pekker`,
+      linkedin: `balintpekker`,
+      github: `balintpekker`,
     },
   },
   plugins: [

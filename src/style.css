@@ -52,11 +52,14 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: #333;
+  --color-primary-dark: #00afdb;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
+  --color-text-dark: #bed7ff;
   --color-heading: #1a202c;
   --color-heading-black: black;
+  --color-heading-white: white;
   --color-accent: #d1dce5;
 }
 
@@ -78,7 +81,16 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
+  transition: all .5s;
+}
+
+body.light {
   color: var(--color-text);
+}
+
+body.dark {
+  background-color: #151f1f;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 footer {
@@ -112,13 +124,22 @@ h4,
 h5,
 h6 {
   font-weight: var(--fontWeight-bold);
-  color: var(--color-heading);
+  color: var(--color-primary-dark);
 }
 
 h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
-  color: var(--color-heading-black);
+  color: var(--color-primary-dark);
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: var(--color-primary-dark);
 }
 
 h2 {
@@ -205,6 +226,10 @@ blockquote {
   margin-bottom: var(--spacing-8);
 }
 
+body.dark blockquote {
+  color: var(--color-text-dark);
+}
+
 blockquote > :last-child {
   margin-bottom: var(--spacing-0);
 }
@@ -227,8 +252,12 @@ table thead tr th {
 
 /* Link */
 
-a {
+body.light a {
   color: var(--color-primary);
+}
+
+body.dark a {
+  color: var(--color-heading-white);
 }
 
 a:hover,
@@ -271,6 +300,10 @@ a:focus {
   color: var(--color-primary);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
+}
+
+.post-list-item h2 a {
+  color: var(--color-primary-dark);
 }
 
 .post-list-item header {
@@ -328,4 +361,65 @@ a:focus {
   ol {
     list-style-position: inside;
   }
+}
+
+.theme-switch {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  float: right;
+  margin-top: .25em;
+}
+
+/* Toggle Button */
+.theme-toggler {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #333;
+  position: absolute;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Making a dot switch inside the Toggle Button */
+.theme-toggler::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #EEE;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in;
+}
+
+/* Changing toggle button background when checked */
+.theme-toggler:checked {
+  background: var(--color-primary-dark);
+}
+
+/* Changing dot switch color and moving to the right side when checked */
+.theme-toggler:checked::before {
+  background: #333;
+  left: 32px;
+}
+
+.social-icons {
+  margin: 1rem 0;
+}
+
+.social-icons a {
+  margin-right: 1rem;
+}
+
+.social-icons a:hover {
+  color: var(--color-primary-dark);
 }

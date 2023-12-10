@@ -1,5 +1,7 @@
 import * as React from "react"
+import { FaRss, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { graphql, Link, useStaticQuery } from "gatsby"
+import Toggler from "./toggler"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -24,13 +26,17 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
+        <Toggler />
       </h1>
     )
   } else {
     header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
+      <span>
+          <Link className="header-link-home" to="/">
+            {title}
+          </Link>
+          <Toggler />
+      </span>
     )
   }
 
@@ -38,10 +44,18 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+      <header className="global-header">
+          {header}
+          <div className="social-icons">
+              <a href={`/rss.xml`}><FaRss/></a>
+              <a href={`https://twitter.com/${social?.twitter || ``}`}><FaTwitter/></a>
+              <a href={`https://linkedin.com/in/${social?.linkedin || ``}`}><FaLinkedinIn/></a>
+              <a href={`https://github.com/${social?.github || ``}`}><FaGithub/></a>
+          </div>
+      </header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()} | <a href="/rss.xml">RSS</a> | <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a> | <a href={`https://linkedin.com/in/${social?.linkedin || ``}`}>LinkedIn</a> | <a href={`https://github.com/${social?.github || ``}`}>GitHub</a>
+          © {new Date().getFullYear()}
       </footer>
     </div>
   )

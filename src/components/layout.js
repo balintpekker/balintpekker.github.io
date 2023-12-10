@@ -41,7 +41,7 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()} | <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a> | <a href={`https://linkedin.com/in/${social?.linkedin || ``}`}>LinkedIn</a> | <a href={`https://github.com/${social?.github || ``}`}>GitHub</a>
+        © {new Date().getFullYear()} | <a href="/rss.xml">RSS</a> | <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a> | <a href={`https://linkedin.com/in/${social?.linkedin || ``}`}>LinkedIn</a> | <a href={`https://github.com/${social?.github || ``}`}>GitHub</a>
       </footer>
     </div>
   )

@@ -14,7 +14,7 @@ module.exports = {
       name: `Balint Pekker`,
       summary: `a software engineer being really good at turning caffeine into code.`,
     },
-    description: `a Drupal Developer's blog.`,
+    description: `bPekker.dev`,
     siteUrl: `https://balintpekker.github.io/`,
     social: {
       twitter: `balint_pekker`,
@@ -96,6 +96,9 @@ module.exports = {
                   html
                   fields {
                     slug
+                    readingTime {
+                      text
+                    }
                   }
                   frontmatter {
                     title
@@ -105,7 +108,7 @@ module.exports = {
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "bPekker RSS Feed",
           },
         ],
       },
@@ -113,8 +116,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `bPekker`,
+        short_name: `bPekker`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website

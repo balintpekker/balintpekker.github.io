@@ -1,10 +1,10 @@
 ---
 title: The Journey So Far
 date: "2023-12-10T01:01:03.284Z"
-description: "This is my initial post sharing my journey in web development so far — a journey that commenced during my college days and ultimately steered me towards becomimng a passionate Drupal enthusiast."
+description: "This is my initial post sharing my journey in web development so far — a journey that commenced during my college days and ultimately steered me towards becoming a passionate Drupal enthusiast."
 ---
 
-This is my initial post sharing my journey in web development so far — a journey that commenced during my college days and ultimately steered me towards becomimng a passionate Drupal enthusiast.
+This is my initial post sharing my journey in web development so far — a journey that commenced during my college days and ultimately steered me towards becoming a passionate Drupal enthusiast.
 
 ### Discovering Drupal: A Shift from Joomla
 
@@ -20,7 +20,7 @@ After my college years I spent a solid two to three years working with a custom-
 
 ### Falling in love with Drupal
 
-As I delved deeper into Drupal post-college, I was fortunate to cross paths with an exceptional mentor at Cheppers. He played a crucial role in shaping my understanding of Drupal and its standards. Learning from someone who had navigated the Drupal ecosystem for years provided me with invaluable insights. The intense two-month learning journey, coupled with subsequent collaborative projects aided by experienced Drupal engineers, solidified my passion. This is the part where my continuous pursuit of understanding Drupal at its core becme an ongoing eneavor.
+As I delved deeper into Drupal post-college, I was fortunate to cross paths with an exceptional mentor at Cheppers. He played a crucial role in shaping my understanding of Drupal and its standards. Learning from someone who had navigated the Drupal ecosystem for years provided me with invaluable insights. The intense two-month learning journey, coupled with subsequent collaborative projects aided by experienced Drupal engineers, solidified my passion. This is the part where my continuous pursuit of understanding Drupal at its core become an ongoing endeavor.
 
 ### Back To The (Future) Community
 

@@ -1,7 +1,6 @@
 import * as React from "react"
 import { FaRss, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
 import { graphql, Link, useStaticQuery } from "gatsby"
-import Toggler from "./toggler"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -26,7 +25,6 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
-        <Toggler />
       </h1>
     )
   } else {
@@ -35,7 +33,6 @@ const Layout = ({ location, title, children }) => {
           <Link className="header-link-home" to="/">
             {title}
           </Link>
-          <Toggler />
       </span>
     )
   }

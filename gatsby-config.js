@@ -130,7 +130,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-dark-mode',
       options: {
-        classNameDark: 'dark',
+        classNameDark: '', // add 'dark' when using <Toggler />
         classNameLight: 'light',
         storageKey: 'darkMode',
         minify: true,

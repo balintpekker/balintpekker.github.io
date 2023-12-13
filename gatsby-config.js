@@ -20,6 +20,7 @@ module.exports = {
       twitter: `balint_pekker`,
       linkedin: `balintpekker`,
       github: `balintpekker`,
+      drupal: `balintpekker`,
     },
   },
   plugins: [

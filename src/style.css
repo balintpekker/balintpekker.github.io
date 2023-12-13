@@ -429,3 +429,8 @@ a:focus {
 .social-icons a:hover {
   color: var(--color-primary-dark);
 }
+
+.blog-post ul,
+.blog-post ol {
+  margin-left: var(--spacing-8);
+}

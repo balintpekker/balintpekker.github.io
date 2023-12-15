@@ -131,19 +131,16 @@ module.exports = {
     },
     'gatsby-plugin-remove-generator',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-YP5T5PRK27",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        exclude: ["/preview/**", "/___graphql"],
-        pageTransitionDelay: 0,
-        defer: false,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "bpekker.dev",
-        enableWebVitalsTracking: true,
+        trackingIds: [
+          "G-YP5T5PRK27",
+        ],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+          exclude: ["/preview/**", "/___graphql"],
+        },
       },
     },
   ],

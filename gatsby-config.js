@@ -15,7 +15,7 @@ module.exports = {
       summary: `a software engineer being really good at turning caffeine into code.`,
     },
     description: `bPekker.dev`,
-    siteUrl: `https://balintpekker.github.io/`,
+    siteUrl: `https://bpekker.dev/`,
     social: {
       twitter: `balint_pekker`,
       linkedin: `balintpekker`,
@@ -142,6 +142,12 @@ module.exports = {
           exclude: ["/preview/**", "/___graphql"],
         },
       },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `bpekker`
+      }
     },
   ],
 }

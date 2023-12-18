@@ -116,4 +116,27 @@ class PageTitleBlock extends BlockBase implements TitleBlockPluginInterface {
 
 ```
 
+The [change record](https://www.drupal.org/node/3395575) says currently all Actions and Blocks are converted to use attributes, but what if I am a contrib/custom module developer and I define custom plugins?
+
+If we carefully inspect the `DefaultPluginManager` in Drupal 10.2, we notice there is a new constructor parameter called `$plugin_definition_attribute_name` which is initially `NULL`. This means, you'll need to add a new parameter to the parent constructor call (at least until `$plugin_definition_annotation_name` parameter is still in use and not deprecated.)
+
+If we check the `BlockManager` class, you can see the parent constructor call uses __`Block::class`__ as the __5th parameter__ in 10.2
+
+```php
+// Before Drupal 10.2
+parent::__construct('Plugin/Block', $namespaces, $module_handler, 'Drupal\Core\Block\BlockPluginInterface', 'Drupal\Core\Block\Annotation\Block');
+
+// After
+parent::__construct('Plugin/Block', $namespaces, $module_handler, 'Drupal\Core\Block\BlockPluginInterface', Block::class, 'Drupal\Core\Block\Annotation\Block');
+```
+
+This parameter is then stored in the `$pluginDefinitionAttributeName` property, and that gets used later in the `getDiscovery()` method of [DefaultPluginManager](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/DefaultPluginManager.php#L290).
+
+As you can see, this method then decides if it should use:
+* [AttributeDiscoveryWithAnnotations](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/Discovery/AttributeDiscoveryWithAnnotations.php)
+* [AttributeClassDiscovery](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/Discovery/AttributeClassDiscovery.php)
+* [AnnotatedClassDiscovery](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/Discovery/AnnotatedClassDiscovery.php)
+* or [ContainerDerivativeDiscoveryDecorator](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/Discovery/ContainerDerivativeDiscoveryDecorator.php)
+
+---
 While the changes may seem subtle, the adoption of PHP attributes opens up new possibilities leading to a more standardized, advanced way of code organization and metadata handling.

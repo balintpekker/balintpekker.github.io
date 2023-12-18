@@ -138,5 +138,8 @@ As you can see, this method then decides if it should use:
 * [AnnotatedClassDiscovery](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/Discovery/AnnotatedClassDiscovery.php)
 * or [ContainerDerivativeDiscoveryDecorator](https://git.drupalcode.org/project/drupal/-/blob/10.2.x/core/lib/Drupal/Core/Plugin/Discovery/ContainerDerivativeDiscoveryDecorator.php)
 
----
+### Thoughts
+
+When creating new plugins from now on, developers should primarily focus on using Attributes in the plugin definitions instead of Doctrine Annotations and ensuring that the appropriate parameters are included in the parent constructor call. The good news is that the process of registering the plugin in the `services.yml` file remains unchanged, allowing the developers to continue using `parent: default_plugin_manager`.
+
 While the changes may seem subtle, the adoption of PHP attributes opens up new possibilities leading to a more standardized, advanced way of code organization and metadata handling.

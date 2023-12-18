@@ -10,7 +10,7 @@ description: "Drupal 10.2 is out, with an easier content management by improving
 
 ### What are attributes in PHP?
 
-They introduce a flexible and standardized approach to add metadata to your code — similar to annotations —, enhancing readability and documentation. Annotations are declared using the `#[...]` syntax, positioned above the element to which you want to attach them. These can also take arguments, allowing you to convey specific information. For instance:
+They introduce a flexible and standardized approach to add metadata to your code — similar to Doctrine annotations —, enhancing readability and documentation. Attributes are declared using the `#[...]` syntax, positioned above the element to which you want to attach them. These can also take arguments, allowing you to convey specific information. For instance:
 
 ```php
 #[ExampleAttribute('argument')]

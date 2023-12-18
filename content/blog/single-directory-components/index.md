@@ -79,7 +79,7 @@ As mentioned in the "[What is SDC](#what-is-sdc)" section, you can enforce the u
 ##### How To Use Props
 
 In your Twig you can define your own props as Twig variables, so for example a button would look like:
- ```
+ ```twig
  my-button.twig
  <a class="{{ btnclass }}" href="{{ link }}">{{ text }}</a>
  ```
@@ -89,7 +89,7 @@ The component will be rendered eventually using `include`, `extend` or `embed` i
 * Include without props: `{{ include('my-theme:my-button') }}`
 * Include with props: 
   * To include with props, you need to pass the props in a JSON string, therefore your `include` statement would look something like this:
-    ```
+    ```twig
     {{ include('my-theme:my-button', {
       link: 'http://google.com',
       text: 'Google It!',
@@ -98,7 +98,7 @@ The component will be rendered eventually using `include`, `extend` or `embed` i
     }}
     ```
     And if you want to include the same component with different props, you can do so:
-    ```
+    ```twig
     {{ include('my-theme:my-button', { link: 'https://www.drupal.org', text: 'Drupal It!', btnclass: 'blue' })}}
     ```
 
@@ -113,7 +113,7 @@ You can render components the same 2 ways one would render HTML in Drupal, by us
 
 Currently, SDC introduces a render element which we can use called `\Drupal\sdc\Element\ComponentElement`. There is an already fixed [issue](https://www.drupal.org/project/drupal/issues/3365693) to move this to the core namespace, so you might find it under Drupal core. Let's see the code:
 
-```
+```php
 $element['my-button'] = [
   '#type' => 'component',
   '#component' => 'my-theme:my-button,
@@ -132,7 +132,7 @@ Props and slots will be passed to your component the same way as you would pass 
 
 It is much simpler to use Twig for rendering the component, you only need to `include` or `embed` it:
 
-```
+```twig
 {{ include('my-theme:my-button', {
   text: 'Google It!',
   btnclass: 'blue'

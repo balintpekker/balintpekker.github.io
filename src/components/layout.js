@@ -13,6 +13,7 @@ const Layout = ({ location, title, children }) => {
             twitter
             linkedin
             github
+            drupal
           }
         }
       }
@@ -48,7 +49,7 @@ const Layout = ({ location, title, children }) => {
               <a href={`https://twitter.com/${social?.twitter || ``}`} target="_blank" rel="noreferrer"><FaTwitter/></a>
               <a href={`https://linkedin.com/in/${social?.linkedin || ``}`} target="_blank" rel="noreferrer"><FaLinkedinIn/></a>
               <a href={`https://github.com/${social?.github || ``}`} target="_blank" rel="noreferrer"><FaGithub/></a>
-              <a href={`https://drupal.org/u/balintpekker`} target="_blank" rel="noreferrer"><FaDrupal/></a>
+              <a href={`https://drupal.org/u/${social?.drupal || ``}`} target="_blank" rel="noreferrer"><FaDrupal/></a>
           </div>
       </header>
       <main>{children}</main>

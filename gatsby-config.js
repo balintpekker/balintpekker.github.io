@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 
+const { nodes } = require("gatsby/dist/redux/reducers")
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -15,7 +16,7 @@ module.exports = {
       summary: `a software engineer being really good at turning caffeine into code.`,
     },
     description: `bPekker.dev`,
-    siteUrl: `https://balintpekker.github.io/`,
+    siteUrl: `https://bpekker.dev/`,
     social: {
       twitter: `balint_pekker`,
       linkedin: `balintpekker`,
@@ -141,6 +142,62 @@ module.exports = {
           respectDNT: true,
           exclude: ["/preview/**", "/___graphql"],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allMarkdownRemark {
+            nodes {
+              frontmatter {
+                date
+              },
+              fields {
+                slug
+              }
+            }
+          }
+        }`,
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+          allMarkdownRemark: { nodes: allPosts },
+        }) => {
+          const pathToDateMap = {};
+
+          allPosts.map(post => {
+            pathToDateMap [post.fields.slug] = { date: post.frontmatter.date };
+          });
+
+          return allPages.map(page => {
+            return { ...page, ...pathToDateMap [page.path] };
+          });
+        },
+        serialize: ({ path, date }) => {
+          let entry = {
+            url: path,
+            changefreq: 'daily',
+            priority: 0.5,
+          };
+
+          if (date) {
+            entry.priority = 0.7;
+            entry.lastmod = date;
+          }
+
+          return entry;
+        }
       },
     },
   ],

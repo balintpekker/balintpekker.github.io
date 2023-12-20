@@ -66,6 +66,7 @@ export const Head = ({ data: { markdownRemark: post } }) => {
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
+      slug={post.fields.slug}
     />
   )
 }
@@ -93,6 +94,7 @@ export const pageQuery = graphql`
         description
       }
       fields {
+        slug
         readingTime {
           text
         }

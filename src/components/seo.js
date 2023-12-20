@@ -8,7 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, title, children }) => {
+const Seo = ({ description, title, slug, children }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -34,14 +34,13 @@ const Seo = ({ description, title, children }) => {
   const metaDescription = description || site.siteMetadata?.description
   const metaKeywords = description || site.siteMetadata?.keywords
   const defaultTitle = site.siteMetadata?.title
-  const metaSiteUrl = site.siteMetadata?.siteUrl
+  const metaSiteUrl = site.siteMetadata?.siteUrl + (slug ? slug : '')
   const metaTitle = title ? title + ' | ' + defaultTitle : defaultTitle
 
   return (
     <>
       <title>{metaTitle}</title>
       <link rel="canonical" href={metaSiteUrl} />
-      <link rel="shortlink" href={metaSiteUrl} />
       <meta name="author" content={author} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />

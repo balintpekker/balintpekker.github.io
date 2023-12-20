@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://bpekker.dev/sitemap-index.xml
+Host: https://bpekker.dev

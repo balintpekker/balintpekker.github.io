@@ -15,7 +15,8 @@ module.exports = {
       name: `Balint Pekker`,
       summary: `a software engineer being really good at turning caffeine into code.`,
     },
-    description: `bPekker.dev`,
+    description: `A Drupal related blog by an experienced software engineer.`,
+    keywords: `blog, drupal, balint, pekker, bpekker, software`,
     siteUrl: `https://bpekker.dev/`,
     social: {
       twitter: `balint_pekker`,

@@ -207,7 +207,6 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://bpekker.dev',
-        sitemap: 'https://bpekker.dev/sitemap-0.xml',
       }
     },
   ],

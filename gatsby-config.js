@@ -25,7 +25,6 @@ module.exports = {
       drupal: `balintpekker`,
     },
   },
-  trailingSlash: 'always',
   plugins: [
     `gatsby-plugin-image`,
     {

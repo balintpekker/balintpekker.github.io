@@ -208,5 +208,13 @@ module.exports = {
         host: 'https://bpekker.dev',
       }
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        showSpinner: false,
+        trickle: false,
+        minimum: 0.4,
+      },
+    },
   ],
 }

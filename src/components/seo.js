@@ -24,6 +24,7 @@ const Seo = ({ description, title, slug, children }) => {
               name
             }
             siteUrl
+            image
           }
         }
       }
@@ -36,6 +37,7 @@ const Seo = ({ description, title, slug, children }) => {
   const defaultTitle = site.siteMetadata?.title
   const metaSiteUrl = site.siteMetadata?.siteUrl + (slug ? slug : '')
   const metaTitle = title ? title + ' | ' + defaultTitle : defaultTitle
+  const seoImage = site.siteMetadata?.siteUrl + site.siteMetadata?.image
 
   return (
     <>
@@ -44,13 +46,14 @@ const Seo = ({ description, title, slug, children }) => {
       <meta name="author" content={author} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />
+      <meta name="image" content={seoImage} />
       <meta itemprop="name" content={metaTitle} />
       <meta itemprop="description" content={metaDescription} />
       <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content="" />
+      <meta property="og:image" content={seoImage} />
       <meta property="og:url" content={metaSiteUrl} />
       <meta name="twitter:card" content="summary" />
       <meta
@@ -59,6 +62,7 @@ const Seo = ({ description, title, slug, children }) => {
       />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={seoImage} />
       {children}
     </>
   )

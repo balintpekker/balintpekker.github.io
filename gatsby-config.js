@@ -24,6 +24,7 @@ module.exports = {
       github: `balintpekker`,
       drupal: `balintpekker`,
     },
+    image: `/icons/icon-192x192.png`,
   },
   plugins: [
     `gatsby-plugin-image`,

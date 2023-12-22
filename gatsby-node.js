@@ -5,15 +5,18 @@
  */
 
 const path = require(`path`)
+const _ = require("lodash")
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { graphql } = require('gatsby');
 
-// Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
+// Define the templates
+const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
+const tagTemplate = path.resolve("src/templates/tags.js")
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter, store }) => {
   const { createPage } = actions
 
   // Get all markdown blog posts sorted by date
@@ -25,6 +28,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fields {
             slug
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: { frontmatter: { tags: SELECT }}) {
+          fieldValue
         }
       }
     }
@@ -51,7 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       createPage({
         path: post.fields.slug,
-        component: blogPost,
+        component: blogPostTemplate,
         context: {
           id: post.id,
           previousPostId,
@@ -60,7 +68,83 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+  // Extract tag data from query
+  const tags = result.data.tagsGroup.group
+
+  if (tags.length > 0) {
+    // Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+        component: tagTemplate,
+        context: {
+          tag: tag.fieldValue,
+        },
+      })
+    })
+  }
+
+  const state = store.getState()
+
+  const plugin = state.flattenedPlugins.find(plugin => plugin.name === "gatsby-plugin-feed")
+  if (plugin) {
+    // Add RSS feeds for tags.
+    plugin.pluginOptions.feeds = [...plugin.pluginOptions.feeds, ...generateTagFeeds(tags)]
+  }
 }
+
+function generateTagFeeds(tags) {
+// Generate feeds for each tag
+  return tags.map(tagObject => {
+    const tag = tagObject.fieldValue;
+
+    return {
+      serialize: ({ query: { site, allMarkdownRemark } }) => {
+        return allMarkdownRemark.edges
+            .filter(e => e.node.frontmatter.tags.includes(tag))
+            .map(e => {
+              return {
+                title: e.node.frontmatter.title,
+                description: e.node.excerpt,
+                date: e.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + e.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + e.node.fields.slug,
+                custom_elements: [
+                  { "content:encoded": e.node.html },
+                  { 'tags': e.node.frontmatter.tags.join(', ') },
+                ],
+              };
+            });
+      },
+      query: `
+        {
+          allMarkdownRemark(
+            sort: {frontmatter: {date: DESC}}
+            filter: {frontmatter: {tags: {in: ["${tag}"]}}}
+          ) {
+            edges {
+              node {
+                excerpt
+                html
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  date
+                  tags
+                }
+              }
+            }
+          }
+        }
+      `,
+      output: `/${tag.toLowerCase()}.xml`,
+      title: `RSS Feed for ${tag}`,
+    };
+  });
+}
+
 
 /**
  * @type {import('gatsby').GatsbyNode['onCreateNode']}

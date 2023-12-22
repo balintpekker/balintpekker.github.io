@@ -45,7 +45,7 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">
           {header}
           <div className="social-icons">
-              <a href={`/rss.xml`} target="_blank" rel="noreferrer" role="button" aria-label="RSS"><FaRss/></a>
+              <a href={`/tags#feeds`} rel="noreferrer" role="button" aria-label="RSS"><FaRss/></a>
               <a href={`https://twitter.com/${social?.twitter || ``}`} target="_blank" rel="noreferrer" role="button" aria-label="Twitter"><FaTwitter/></a>
               <a href={`https://linkedin.com/in/${social?.linkedin || ``}`} target="_blank" rel="noreferrer" role="button" aria-label="LinkedIn"><FaLinkedinIn/></a>
               <a href={`https://github.com/${social?.github || ``}`} target="_blank" rel="noreferrer" role="button" aria-label="Github"><FaGithub/></a>
@@ -54,7 +54,7 @@ const Layout = ({ location, title, children }) => {
       </header>
       <main>{children}</main>
       <footer>
-          © {new Date().getFullYear()}
+          <small>© {new Date().getFullYear()} - <Link to="/">{title}</Link></small>
       </footer>
     </div>
   )

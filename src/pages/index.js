@@ -9,12 +9,15 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
+    console.log(posts.length)
+
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+        {posts.map((post, index) => {
           const title = post.frontmatter.title || post.fields.slug
+          const tags = post.frontmatter.tags
 
           return (
             <li key={post.fields.slug}>
@@ -38,6 +41,14 @@ const BlogIndex = ({ data, location }) => {
                     }}
                     itemProp="description"
                   />
+                  <span className="tags">
+                    {tags.map(tag => {
+                        const tagLink = "/tags/" + tag
+                        return (
+                            <Link to={tagLink}>#{tag}&nbsp;</Link>
+                        )
+                    })}
+                  </span>
                 </section>
               </article>
             </li>
@@ -77,6 +88,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
         }
       }
     }

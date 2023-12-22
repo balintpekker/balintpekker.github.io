@@ -5,6 +5,7 @@
  */
 
 const { nodes } = require("gatsby/dist/redux/reducers")
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -90,7 +91,10 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
+                  custom_elements: [
+                    { "content:encoded": node.html },
+                    { 'tags': node.frontmatter.tags.join(', ') },
+                  ],
                 })
               })
             },
@@ -108,6 +112,7 @@ module.exports = {
                   frontmatter {
                     title
                     date
+                    tags
                   }
                 }
               }

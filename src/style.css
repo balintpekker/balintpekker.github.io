@@ -181,6 +181,10 @@ h6 > a {
   color: inherit;
 }
 
+a {
+  color: #2fa0bd;
+}
+
 /* Prose */
 
 p {
@@ -429,4 +433,147 @@ a:focus {
 .blog-post ul,
 .blog-post ol {
   margin-left: var(--spacing-8);
+}
+/*
+.tags a {
+  color: #999;
+  text-decoration: none;
+  font-size: 85%;
+  font-style: italic;
+  padding: 0 .1rem 0;
+}
+*/
+
+span.tags a,
+ul.tags-list a,
+.tags h1 a {
+  display: inline-block;
+  background: #ebebeb;
+  color: #777;
+  border-radius: 3px 0 0 3px;
+  line-height: 26px;
+  padding: 0 5px 0 10px;
+  position: relative;
+  margin-right: 1rem;
+  user-select: none;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.tags h1 a {
+  font-size: xx-large;
+  font-weight: 300;
+}
+
+span.tags a {
+  margin-top: 1rem;
+}
+
+ul.tags-list {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+#feeds {
+  margin-top: 1rem;
+}
+
+ul.feeds-list a, .rss {
+  display: inline-block;
+  color: #00afdc;
+  position: relative;
+  margin-right: 1rem;
+  user-select: none;
+  transition: all 0.2s;
+  text-decoration: none;
+  font-size: small;
+}
+
+ul.feeds-list a:hover, .rss:hover {
+  color: #1c3946;
+}
+
+.rss {
+  font-weight: 600;
+  font-size: medium;
+  margin-bottom: 1rem;
+}
+
+.tags h1 a {
+  line-height: 46px;
+}
+
+span.tags a,
+ul.tags-list a {
+  font-size: 90%;
+}
+
+span.tags a::after,
+ul.tags-list a::after,
+.tags h1 a::after {
+  content: '';
+  position: absolute;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #ebebeb;
+  border-top: 13px solid transparent;
+  right: -10px;
+  transition: all 0.2s;
+  top: 0;
+}
+
+.tags h1 a::after {
+  border-bottom: 23px solid transparent;
+  border-left: 20px solid #ebebeb;
+  border-top: 23px solid transparent;
+  right: -20px;
+}
+
+span.tags a:hover,
+ul.tags-list a:hover,
+.tags h1 a:hover {
+  color: #555;
+  background: #ccc;
+}
+
+span.tags a:hover:after,
+ul.tags-list a:hover:after {
+  border-left: 10px solid #ccc;
+}
+
+.tags h1 a:hover:after {
+  border-left: 20px solid #ccc;
+}
+
+ul.tags-list li,
+ul.feeds-list li {
+  display: inline-block;
+}
+
+ul.tags-list-single li {
+  list-style: none;
+}
+
+ul.tags-list-single li hr {
+  border-bottom: 1px dashed #b3afaf;
+  background: transparent;
+  margin-top: 1rem;
+}
+
+ul.tags-list-single li:first-child {
+  margin-top: var(--spacing-12);
+}
+
+ul.tags-list-single h2 {
+  margin-bottom: var(--spacing-2);
+  margin-top: var(--spacing-0);
+}
+
+ul.tags-list-single small {
+  margin-top: 0;
+}
+
+.post-list-item hr {
+  /* background: rgba(0, 175, 220, 0.5); */
+  width: 75%;
+  margin-left: 0;
 }

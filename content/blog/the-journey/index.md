@@ -2,6 +2,7 @@
 title: The Journey So Far
 date: "2023-12-10T01:01:03.284Z"
 description: "This is my initial post sharing my journey in web development so far — a journey that commenced during my college days and ultimately steered me towards becoming a passionate Drupal enthusiast."
+tags: ["story"]
 ---
 
 This is my initial post sharing my journey in web development so far — a journey that commenced during my college days and ultimately steered me towards becoming a passionate Drupal enthusiast.

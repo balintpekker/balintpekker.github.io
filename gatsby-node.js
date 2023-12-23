@@ -139,23 +139,6 @@ function generateTagFeeds(tags) {
       output: `/${tag.toLowerCase()}.xml`,
       title: 'Balint Pekker | bpekker.dev',
       description: `A collection of '${tag}' related posts | bPekker.dev`,
-      setup: ({
-        query: {
-          site: { siteMetadata },
-        },
-      }) => ({
-        custom_elements: [
-          {
-            'atom:link': {
-              _attr: {
-                href: `${siteMetadata.siteUrl}/${tag}.xml`,
-                rel: 'self',
-                type: 'application/rss+xml',
-              },
-            },
-          },
-        ],
-      }),
     };
   });
 }

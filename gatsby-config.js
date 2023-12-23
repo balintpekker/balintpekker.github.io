@@ -122,23 +122,6 @@ module.exports = {
             }`,
             output: "/rss.xml",
             title: "Balint Pekker | bpekker.dev",
-            setup: ({
-              query: {
-                site: { siteMetadata },
-              },
-            }) => ({
-              custom_elements: [
-                {
-                  'atom:link': {
-                    _attr: {
-                      href: `${siteMetadata.siteUrl}/rss.xml`,
-                      rel: 'self',
-                      type: 'application/rss+xml',
-                    },
-                  },
-                },
-              ],
-            }),
           },
         ],
       },

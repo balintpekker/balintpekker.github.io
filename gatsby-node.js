@@ -5,13 +5,13 @@
  */
 
 const path = require(`path`)
-const _ = require("lodash")
+const _ = require(`lodash`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const { graphql } = require('gatsby');
+const { graphql } = require(`gatsby`);
 
 // Define the templates
 const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
-const tagTemplate = path.resolve("src/templates/tags.js")
+const tagTemplate = path.resolve(`./src/templates/tags.js`)
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}

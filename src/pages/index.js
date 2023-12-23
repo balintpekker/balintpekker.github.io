@@ -9,8 +9,6 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-    console.log(posts.length)
-
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />

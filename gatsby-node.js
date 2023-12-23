@@ -139,7 +139,7 @@ function generateTagFeeds(tags) {
         }
       `,
       output: `/${tag.toLowerCase()}.xml`,
-      title: `RSS Feed for ${tag}`,
+      title: `${tag} related content | bPekker.dev`,
     };
   });
 }

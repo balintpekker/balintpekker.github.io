@@ -93,7 +93,6 @@ module.exports = {
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [
                     { "content:encoded": node.html },
-                    { 'tags': node.frontmatter.tags.join(', ') },
                   ],
                 })
               })

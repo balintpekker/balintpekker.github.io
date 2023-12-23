@@ -111,7 +111,6 @@ function generateTagFeeds(tags) {
                 guid: site.siteMetadata.siteUrl + e.node.fields.slug,
                 custom_elements: [
                   { "content:encoded": e.node.html },
-                  { 'tags': e.node.frontmatter.tags.join(', ') },
                 ],
               };
             });

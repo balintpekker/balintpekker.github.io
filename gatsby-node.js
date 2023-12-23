@@ -105,13 +105,10 @@ function generateTagFeeds(tags) {
             .map(e => {
               return {
                 title: e.node.frontmatter.title,
-                description: e.node.excerpt,
+                description: e.node.frontmatter.description,
                 date: e.node.frontmatter.date,
                 url: site.siteMetadata.siteUrl + e.node.fields.slug,
                 guid: site.siteMetadata.siteUrl + e.node.fields.slug,
-                custom_elements: [
-                  { "content:encoded": e.node.html },
-                ],
               };
             });
       },
@@ -132,6 +129,7 @@ function generateTagFeeds(tags) {
                   title
                   date
                   tags
+                  description
                 }
               }
             }
@@ -139,7 +137,8 @@ function generateTagFeeds(tags) {
         }
       `,
       output: `/${tag.toLowerCase()}.xml`,
-      title: `${tag} related content | bPekker.dev`,
+      title: 'Balint Pekker | bpekker.dev',
+      description: `A collection of '${tag}' related posts | bPekker.dev`,
     };
   });
 }

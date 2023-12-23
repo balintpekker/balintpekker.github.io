@@ -92,13 +92,11 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
-                  description: node.excerpt,
+                  title: node.frontmatter.title,
+                  description: node.frontmatter.description,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [
-                    { "content:encoded": node.html },
-                  ],
                 })
               })
             },
@@ -117,12 +115,13 @@ module.exports = {
                     title
                     date
                     tags
+                    description
                   }
                 }
               }
             }`,
             output: "/rss.xml",
-            title: "bPekker RSS Feed",
+            title: "Balint Pekker | bpekker.dev",
           },
         ],
       },

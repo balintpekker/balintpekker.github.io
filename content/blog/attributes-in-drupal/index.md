@@ -2,7 +2,7 @@
 title: Attributes In Drupal
 date: "2023-12-18T13:01:03.284Z"
 description: "Drupal 10.2 is out, with an easier content management by improving user experience, and with some performance improvements in caching and HTTP responses. It is also compatible with PHP 8.3, and it started using PHP attributes."
-tags: ["attributes", "doctrine", "php", "drupal"]
+tags: ["attributes", "doctrine", "drupal", "php"]
 ---
 
 [Drupal 10.2](https://www.drupal.org/project/drupal/releases/10.2.0) is out, with an easier content management by improving user experience, and with some performance improvements in caching and HTTP responses. It is also compatible with PHP 8.3, and it started using PHP attributes.

@@ -2,7 +2,7 @@
 title: Single Directory Components
 date: "2023-12-12T18:12:03.284Z"
 description: "The Drupal frontend development has long been intricate and demanding, however Drupal 10 introduces a game-changer — Single Directory Components (SDC)."
-tags: ["frontend", "initiative", "drupal", "sdc"]
+tags: ["drupal", "frontend", "initiative", "sdc"]
 ---
 
 The Drupal frontend development has long been intricate and demanding, however Drupal 10 introduces a game-changer — [Single Directory Components (SDC)](https://www.drupal.org/project/sdc).

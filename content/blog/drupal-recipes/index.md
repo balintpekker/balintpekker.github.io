@@ -1,6 +1,6 @@
 ---
 title: "The Drupal Prep Manual: Recipes!"
-date: "2024-02-23T21:38:11.123Z"
+date: "2024-02-22T19:23:11.123Z"
 description: "Does the process of configuring modules and setting up content types manually from scratch sound all too familiar? Have you ever wished for a secret ingredient to simplify your Drupal development process? That's exactly what recipes bring to the table: a structured approach to site building that saves you precious hours of trial and error. After all, in the world of development, time equals money."
 tags: ["drupal", "distributions", "initiative", "recipes"]
 ---
@@ -144,7 +144,7 @@ If you've decided to follow the advice and attempt to apply a recipe from a repo
 ```
 {
  "type": "vcs",
- "url": "https://gitlab.com/balintpekker/drupal_base_recipe"
+ "url": "https://github.com/balintpekker/drupal_base_recipe"
 }
 
 ```

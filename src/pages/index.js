@@ -18,7 +18,7 @@ const BlogIndex = ({ data, location }) => {
           const tags = post.frontmatter.tags
 
           return (
-            <li key={post.fields.slug}>
+            <li key={index}>
               <article
                 className="post-list-item"
                 itemScope

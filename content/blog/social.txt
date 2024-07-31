@@ -1,0 +1,44 @@
+Do you smell what Drupal is cooking?
+
+"2024-02-23T16:35:11.123Z"
+    -> 11:35 in America
+    -> 16:35 (UTC)
+    -> 17:35 in Hungary
+
+
+16:28 america
+21:28 utc -- ez kell nekünk
+22:28 hu
+
+19:23
+0:23 utc
+1:23
+
+
+I think Recipes are great for providing developers with a starting point.
+
+I think Recipes serve as an excellent starting point for developers. My blog is featured on Drupal Planet, and as of now I only use X and Mastodon. I'm definitely going to check out ActivityPub, thanks for the info!
+
+
+23:31 deploy
+
+My take on the Future of #Drupal. Would love to hear thoughts and opinions too on the subject!
+
+
+My small take on the Future of #Drupal. Would love to hear your thoughts!
+
+
+Say goodbye to updating #drupal manually and stay up-to-date with just a click! Huge appreciation for the incredible team behind this initiative.
+
+---
+
+I completely agree with most of the points you've made in your post. It's definitely a cleaner approach to "Just say Drupal" in terms of marketing.
+
+However, transitioning away from mentioning version numbers might be a challenge within the developer community. Given that Automatic Updates may not be enabled on every site as a mandatory feature, abandoning this practice might not be as straightforward as it seems.
+
+Overall, I found your post to be quite insightful and thought-provoking. Thank you for sharing your perspective on this matter — I truly enjoyed reading it.
+
+
+
+Let's dive into (GitHub) action with testing for #Drupal!
+https://bpekker.dev/enhancing-drupal-with-github-actions/

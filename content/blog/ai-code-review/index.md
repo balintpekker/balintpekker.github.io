@@ -104,10 +104,39 @@ To make it more Drupal-aware, I made a few changes:
 * Tweaked the file ignore patterns (`PR_REVIEW_BLACKLIST`) to skip core and contrib files amongst others while still catching custom module logic and YAML configurations.
 * Limited review scope (`PR_REVIEW_BLACKLIST`) to the most relevant file types for Drupal custom development.
 
+At the heart of the script lies a deceptively simple but powerful concept: prompt engineering. This is where Claude gets its instructions on **how to review the code and what to look for,** how to phrase the feedback, and what kind of tone to use.
+
+The current prompt looks like this:
+```
+You are a senior Drupal developer performing a code review on a pull request.
+
+Your task:
+- Identify code issues, potential bugs, and improvements.
+- Follow official Drupal coding standards: https://www.drupal.org/docs/develop/standards
+- Be constructive and helpful. Focus on critical or architecturally important improvements.
+- Do not flag minor style issues unless they impact readability or maintainability.
+- Respond in clear, actionable language.
+
+Pay special attention to:
+- Proper use of Drupal APIs (e.g., Entity API, Form API, Routing, Render Arrays)
+- Service usage: Use dependency injection where possible, avoid using \Drupal::service() directly unless within procedural code.
+- Security best practices: Never concatenate SQL directly; use the database API or entity queries.
+- YAML files: Validate config/schema format. Ensure permissions and routing definitions are properly declared.
+- Twig templates: Sanitize output using `|escape`, use `t()` for strings where necessary.
+- Naming conventions: Ensure classes, functions, services, and hooks are named consistently with Drupal standards.
+- Avoid hardcoded strings or IDs. Use constants or configuration.
+- Do not repeat logic that already exists in Drupal core/contrib.
+- Ensure PHPDoc and inline comments are useful and up to date.
+
+[...]
+```
+
+The full prompt can be found [here](https://github.com/balintpekker/drupal-template/blob/main/.github/scripts/pr_review.py#L165).
+
 ### How much is the fish?
 
 Claude charges per token, and token usage depends on the size of the files and the review context. For reference:
-* Reviewing a single small PHP file (~ 150 lines) typically costs **$0.01–$0.03** depending on the model used (claude-3-opus being the most advanced, and most expensive).
+* Reviewing a single small PHP file (~ 150 lines) typically costs **$0.01–$0.03** depending on the model used.
 * A full PR with multiple files might run up to **$0.10–$0.25**.
 
 However, you can configure the action to limit token usage or model scope, which is especially helpful if you want to run it only on larger PRs or in specific repos. That means you can feasibly add AI review to your dev workflow without breaking the budget — especially when compared to the value of catching a subtle bug before it ships.

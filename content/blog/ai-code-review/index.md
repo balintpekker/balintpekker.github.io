@@ -2,7 +2,7 @@
 title: AI Code Review for Drupal
 date: "2025-04-10T01:33:03.284Z"
 description: "It’s been a while since I’ve posted here. The last few months were packed with projects — shipping features, handling migrations, managing infrastructure, and everything in between. Writing fell by the wayside. But recently, something clicked again. Dries’ recent post on coding with Claude sparked a familiar feeling: curiosity, a bit of wonder, and the urge to build and share again."
-tags: ["ai", "drupal", "story"]
+tags: ["ai", "drupal"]
 ---
 
 It’s been a while since I’ve posted here. The last few months were packed with projects — shipping features, handling migrations, managing infrastructure, and everything in between. Writing fell by the wayside. But recently, something clicked again.
